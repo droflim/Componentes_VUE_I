@@ -1,0 +1,77 @@
+<html>
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <items-componente></items-componente>
+    </div>
+    <style>
+        li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.4rem;
+        }
+
+        img {
+            width: 7%;
+            border-radius: 100px;
+            margin-right: 1rem;
+        }
+
+        p {
+            color: green;
+            font-size: 1.2rem;
+        }
+
+        body {
+            background-image: url("https://rickandmortypod.com/wp-content/uploads/2018/11/cropped-RM_page-header_background1-3.png");
+        }
+    </style>
+
+    <script>
+        Vue.component('items-componente', {
+
+            template: ` <div>
+        <ul>
+            <li v-for="(item, index) in items" :key="index">
+           <img v-bind:src="item.src"">
+           <p>{{item.nombre}}</p>
+           </li>
+           </ul>
+           </div>`,
+            data: () => ({
+
+                items: [{
+                        nombre: "Rick Sanchez",
+                        src: ("https://rickandmortyapi.com/api/character/avatar/1.jpeg")
+                    },
+                    {
+                        nombre: "Daily Sanchez",
+                        src: ("https://rickandmortyapi.com/api/character/avatar/5.jpeg")
+                    },
+                    {
+                        nombre: "Ben Sanchez",
+                        src: ("https://rickandmortyapi.com/api/character/avatar/6.jpeg")
+                    },
+                    {
+                        nombre: "Arabio Sanchez",
+                        src: ("https://rickandmortyapi.com/api/character/avatar/7.jpeg")
+                    },
+                    {
+                        nombre: "Dirty Sanchez",
+                        src: ("https://rickandmortyapi.com/api/character/avatar/8.jpeg")
+                    },
+
+
+                ]
+            })
+        });
+
+        new Vue({
+            el: '#app'
+        })
+    </script>
+</body>
+
+</html>
